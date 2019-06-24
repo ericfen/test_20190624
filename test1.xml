@@ -1,0 +1,185 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="55" x="13" y="13">
+    <statement name="CONTENT">
+      <block type="linkit_lremote" id="56" inline="false">
+        <field name="ORIENTATION">vertical</field>
+        <value name="DEVICEID">
+          <block type="text" id="57">
+            <field name="TEXT">ericfen</field>
+          </block>
+        </value>
+        <value name="COLUMN">
+          <block type="math_number" id="58">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+        <value name="ROW">
+          <block type="math_number" id="59">
+            <field name="NUM">6</field>
+          </block>
+        </value>
+        <statement name="CONTENT">
+          <block type="linkit_lremote_settext" id="60" inline="true">
+            <field name="COLOUR">yellow</field>
+            <value name="NAME">
+              <block type="text" id="61">
+                <field name="TEXT">label1</field>
+              </block>
+            </value>
+            <value name="CONTENT">
+              <block type="text" id="62">
+                <field name="TEXT">藍芽遙控測試</field>
+              </block>
+            </value>
+            <value name="COLUMN">
+              <block type="math_number" id="63">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="ROW">
+              <block type="math_number" id="64">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <value name="WIDTH">
+              <block type="math_number" id="65">
+                <field name="NUM">5</field>
+              </block>
+            </value>
+            <value name="HEIGHT">
+              <block type="math_number" id="66">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="linkit_lremote_setbuttoncircle" id="67" inline="true">
+                <field name="COLOUR">blue</field>
+                <value name="NAME">
+                  <block type="text" id="68">
+                    <field name="TEXT">circle1</field>
+                  </block>
+                </value>
+                <value name="CONTENT">
+                  <block type="text" id="69">
+                    <field name="TEXT">開/關</field>
+                  </block>
+                </value>
+                <value name="COLUMN">
+                  <block type="math_number" id="70">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="ROW">
+                  <block type="math_number" id="71">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="WIDTH">
+                  <block type="math_number" id="72">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+                <value name="HEIGHT">
+                  <block type="math_number" id="73">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="linkit_lremote_settext" id="99" inline="true">
+                    <field name="COLOUR">green</field>
+                    <value name="NAME">
+                      <block type="text" id="100">
+                        <field name="TEXT">label2</field>
+                      </block>
+                    </value>
+                    <value name="CONTENT">
+                      <block type="text" id="101">
+                        <field name="TEXT">唐進豐製作</field>
+                      </block>
+                    </value>
+                    <value name="COLUMN">
+                      <block type="math_number" id="102">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="ROW">
+                      <block type="math_number" id="103">
+                        <field name="NUM">5</field>
+                      </block>
+                    </value>
+                    <value name="WIDTH">
+                      <block type="math_number" id="104">
+                        <field name="NUM">5</field>
+                      </block>
+                    </value>
+                    <value name="HEIGHT">
+                      <block type="math_number" id="105">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <next>
+      <block type="initializes_loop" id="98">
+        <statement name="CONTENT">
+          <block type="linkit_lremote_process" id="154">
+            <next>
+              <block type="controls_if" id="258" inline="false">
+                <value name="IF0">
+                  <block type="linkit_lremote_is_written" id="203">
+                    <field name="NAME">circle1</field>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="controls_if" id="264" inline="false">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="270" inline="true">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="linkit_lremote_read_value" id="252">
+                            <field name="NAME">circle1</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="281">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="inout_buildin_led" id="389">
+                        <field name="STAT">HIGH</field>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="inout_buildin_led" id="390">
+                        <field name="STAT">LOW</field>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+                <next>
+                  <block type="delay_custom" id="411" inline="false">
+                    <value name="DELAY_TIME">
+                      <block type="math_number" id="412">
+                        <field name="NUM">100</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
